@@ -1,5 +1,6 @@
-                                                                      **RAINY DAYS**
-                                                              
+                                                                                                                 
+![10047c6ac1224dec827a44be787f92d5](https://user-images.githubusercontent.com/25209405/179540997-d950c828-2a38-444b-8f00-8370a720f99e.png)
+      
                                                               
                                                               
 **A weather app that will give us a 5-day forecast. It will display specific symbols to indicate whether it's sunny, raining, snowing, etc. You can also input whichever city you'd like to get the forecast for. When you click on a specific day, it'll redirect you to a page with more weather related information for that day.**
@@ -7,11 +8,14 @@
 
 
 
-                                                                            
-                                      
-                                      
-                                      
-                                      
+
+
+
+
+
+
+
+
 **5 day forecast: Desktop view**
 ![Screenshot (131)](https://user-images.githubusercontent.com/25209405/179531366-42645721-1ed4-4213-8186-e47d8d620727.png)
 
@@ -32,13 +36,25 @@
 
  **5 day forecast**
 
-api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}&units=imperial
+https://api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}&units=imperial
 private key to make a call 
 
 
 **Current day forecast**
 
 https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&units=imperial
+
+
+
+
+**    *****For temperature in Fahrenheit use units=imperial
+For temperature in Celsius use units=metric
+Temperature in Kelvin is used by default, no need to use units parameter in API call*****   **
+
+
+
+
+
 
 
 **Documentation**
@@ -54,3 +70,4 @@ https://openweathermap.org/forecast5
 **Post-MVP features**
     -  immediate weather report based off of geo-location
     - choose between fahrenheit/celsius 
+
