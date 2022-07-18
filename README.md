@@ -6,3 +6,8 @@ A weather app that will give us a 5-day forecast. It will display specific symbo
 
 
 
+![Screenshot (131)](https://user-images.githubusercontent.com/25209405/179531366-42645721-1ed4-4213-8186-e47d8d620727.png)
+
+
+
+
