@@ -1,12 +1,24 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import './App.css';
+// COMPONENTS
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+import NotFound from './pages/NotFound'
+import Header from './components/Header'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-   
-    </div>
-  );
+    <Router>
+      <Header />
+      <div className='container'>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+export default App
