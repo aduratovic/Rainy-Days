@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+                                                                                                                 
+![10047c6ac1224dec827a44be787f92d5](https://user-images.githubusercontent.com/25209405/179540997-d950c828-2a38-444b-8f00-8370a720f99e.png)
+      
+                                                              
+                                                              
+**A weather app that will give us a 5-day forecast. It will display specific symbols to indicate whether it's sunny, raining, snowing, etc. You can also input whichever city you'd like to get the forecast for. When you click on a specific day, it'll redirect you to a page with more weather related information for that day.**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**5 day forecast: Desktop view**
+![Screenshot (131)](https://user-images.githubusercontent.com/25209405/179531366-42645721-1ed4-4213-8186-e47d8d620727.png)
 
-### `npm run eject`
+**Tablet view**
+![tablet](https://user-images.githubusercontent.com/25209405/179531400-091309b3-2b91-4f42-a5bf-3372c6ba7ddf.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**mobile view(day)**
+![Screenshot (137)](https://user-images.githubusercontent.com/25209405/179531426-7b51d54e-275f-4930-a36a-ff34cb040776.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**mobile view(night)**
+![Screenshot (136)](https://user-images.githubusercontent.com/25209405/179531440-e03f0edf-599d-4652-b3b8-d4f53823b3a9.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**component hierarchy**
+![tree](https://user-images.githubusercontent.com/25209405/179531447-21002adb-c35e-47a2-94ba-d42406cd9ab8.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ **5 day forecast**
 
-### Code Splitting
+https://api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}&units=imperial
+private key to make a call 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+**Current day forecast**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&units=imperial
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**    *****For temperature in Fahrenheit use units=imperial
+For temperature in Celsius use units=metric
+Temperature in Kelvin is used by default, no need to use units parameter in API call*****   **
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+**Documentation**
+
+https://openweathermap.org/forecast5
+
+
+ **Minimum MVP features** 
+     -  5 day(mon-fri) forecast that shows the current date and temperature
+     - choose a city for a weather forecast
+     - more detailed weather information for a particular day
+
+**Post-MVP features**
+    -  immediate weather report based off of geo-location
+    - choose between fahrenheit/celsius 
+
