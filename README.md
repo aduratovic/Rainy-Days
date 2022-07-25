@@ -1,6 +1,4 @@
-
-
-                        **Rainy Days**
+      **Rainy Days**
 
 
 A weather app that will give us a 5-day forecast. It will display specific icons to indicate whether it's sunny, raining, snowing, etc. You can also input whichever city you'd like to get the forecast for. When you click on a specific day, it'll show you more detailed weather information.
@@ -89,14 +87,10 @@ Temperature is available in Fahrenheit, Celsius and Kelvin units.
 https://openweathermap.org/forecast5
 
 
-##Deployment
-https://rainy-days.netlify.app/
-
-
 
 Current weather
 https://openweathermap.org/current#format
-## 🛠 Built with
+## 🛠 Skills
 
 
 
@@ -117,3 +111,14 @@ https://openweathermap.org/current#format
 
 
 ![reacttt](https://user-images.githubusercontent.com/25209405/179586891-1033c612-64f0-4a92-8ad6-84258ad5e316.png) 
+
+
+
+
+
+## DEPLOYMENT
+
+
+https://rainy-days.netlify.app/
+
+
