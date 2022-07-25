@@ -5,10 +5,11 @@ const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
   const [forecast, setForecast] = useState([]);
+  const [currentData, setCurrentData] = useState({});
   const [dayTimeForecast, setDayTimeForecast] = useState([]);
   const [nightTimeForecast, setNightTimeForecast] = useState([]);
   const [isDay, setIsDay] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [cityName, setCityName] = useState("Detroit");
 
   const getForecast = async () => {
@@ -19,6 +20,22 @@ export const WeatherProvider = ({ children }) => {
       )
       .then((res) => {
         setForecast(res.data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
+  };
+
+  const getCurrentWeather = async () => {
+    setIsLoading(true);
+    await axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=4300e98fd30d68ae8b76eadcf64b9d6c&units=imperial`
+      )
+      .then((res) => {
+        setCurrentData(res.data);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -58,6 +75,9 @@ export const WeatherProvider = ({ children }) => {
         isLoading,
         cityName,
         setCityName,
+        getCurrentWeather,
+        currentData,
+        setCurrentData,
       }}
     >
       {children}

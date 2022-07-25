@@ -1,6 +1,14 @@
 import { useState, useContext } from "react";
 import WeatherContext from "../../context/WeatherContext";
 import Sun from "../../assets/img/sun.png";
+import ClearSkyNight from "../../assets/img/clearskynight.png";
+import LightRain from "../../assets/img/lightrain.png";
+import ModerateRain from "../../assets/img/moderaterain.png";
+import OverCast from "../..//assets/img/overcast.png";
+import CloudDay from "../../assets/img/scatteredcloudsday.png";
+import CloudNight from "../../assets/img/scatteredcloudsnight.png";
+import BrokenCloudDay from "../../assets/img/brokencloudsday.png";
+import BrokenCloudNight from "../../assets/img/brokencloudsnight.png";
 
 const SingleResult = ({ data }) => {
   const { forecast } = useContext(WeatherContext);
@@ -26,6 +34,13 @@ const SingleResult = ({ data }) => {
     return `${month} - ${day}`;
   };
 
+  const isDayTime = () => {
+    if (data.dt_txt.includes("15:00:00")) {
+      return true;
+    }
+    return false;
+  };
+
   const formatHour = (date) => {
     const d = new Date(date);
     let hour = d.getHours();
@@ -37,28 +52,57 @@ const SingleResult = ({ data }) => {
   };
 
   return (
-    <div className="single-result" onClick={() => setIsOpen(!isOpen)}>
-      <div className="single-result__header">
-        <div className="weather-icon">
-          {/* <img
-            src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`}
-            alt=''
-            width={100}
-          /> */}
-          <img src={Sun} alt="" width={100} />
+    <>
+      <div className="single-result" onClick={() => setIsOpen(!isOpen)}>
+        <div className="single-result__header">
+          <div className="weather-icon">
+            <img
+              src={
+                data.weather[0].description === "clear sky" && isDayTime()
+                  ? Sun
+                  : data.weather[0].description === "clear sky" && !isDayTime()
+                  ? ClearSkyNight
+                  : data.weather[0].description === "few clouds"
+                  ? LightRain
+                  : data.weather[0].description === "scattered clouds" &&
+                    isDayTime()
+                  ? CloudDay
+                  : data.weather[0].description === "scattered clouds" &&
+                    !isDayTime()
+                  ? CloudNight
+                  : data.weather[0].description === "overcast clouds"
+                  ? OverCast
+                  : data.weather[0].description === "light rain"
+                  ? LightRain
+                  : data.weather[0].description === "moderate rain"
+                  ? ModerateRain
+                  : data.weather[0].description === "broken clouds" &&
+                    isDayTime()
+                  ? BrokenCloudDay
+                  : data.weather[0].description === "broken clouds" &&
+                    !isDayTime()
+                  ? BrokenCloudNight
+                  : null
+              }
+              alt=""
+              width={100}
+            />
+          </div>
         </div>
-      </div>
-      <div className="single-result__body">
-        <p>{formatDate(data.dt_txt)}</p>
-        <p>{data.main.temp.toFixed(0)}°F</p>
-        <p>{data.weather[0].description}</p>
-      </div>
 
-      {/* MODAL */}
+        <div className="separator"></div>
 
+        <div className="single-result__body">
+          <p>{formatDate(data.dt_txt)}</p>
+          <p>{data.main.temp.toFixed(0)}°F</p>
+          <p>{data.weather[0].description}</p>
+        </div>
+
+        {/* MODAL */}
+      </div>
       <div className={`modal ${isOpen ? "active" : ""}`}>
         <div className="modal-content">
-          <button>
+          <button onClick={() => setIsOpen(false)}>
             <i className="fa-solid fa-times"></i>
           </button>
           <div className="modal-content__body">
@@ -68,15 +112,29 @@ const SingleResult = ({ data }) => {
                 <h2>
                   {formatDate(data.dt_txt)} - {formatHour(data.dt_txt)}{" "}
                 </h2>
+                <div className=""></div>
               </div>
               <div className="right">
                 <div className="weather-icon">
-                  {/* <img
-                    src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`}
-                    alt=''
-                    width={100}
-                  /> */}
-                  <img src="" alt="" />
+                  <div className="weather-icon">
+                    <img
+                      src={
+                        data.weather[0].description === "clear sky"
+                          ? Sun
+                          : data.weather[0].description === "few clouds"
+                          ? LightRain
+                          : data.weather[0].description === "scattered clouds"
+                          ? CloudDay
+                          : data.weather[0].description === "overcast clouds"
+                          ? OverCast
+                          : data.weather[0].description === "light rain"
+                          ? LightRain
+                          : null
+                      }
+                      alt=""
+                      width={100}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -94,7 +152,7 @@ const SingleResult = ({ data }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
