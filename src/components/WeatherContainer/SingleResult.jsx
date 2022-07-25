@@ -144,10 +144,7 @@ const SingleResult = ({ data }) => {
               <p>Temp: {data.main.temp.toFixed(0)}°F</p>
               <p>Feels Like: {data.main.feels_like.toFixed(0)}°F</p>
               <p>Humidity: {data.main.humidity}%</p>
-              <p>
-                Wind: {data.wind.speed} mph {data.wind.deg}°
-              </p>
-              <p>Visibility: {data.visibility} miles</p>
+              <p>Wind: {data.wind.speed} mph</p>
             </div>
           </div>
         </div>
