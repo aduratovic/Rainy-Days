@@ -89,6 +89,10 @@ Temperature is available in Fahrenheit, Celsius and Kelvin units.
 https://openweathermap.org/forecast5
 
 
+##Deployment
+https://rainy-days.netlify.app/
+
+
 
 Current weather
 https://openweathermap.org/current#format
